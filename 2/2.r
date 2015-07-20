@@ -1,13 +1,17 @@
 setwd("/home/afk/Codes/Algo/2/")
 
 
-source("Quicksort.r")
+source("qsort_mod.r")
 
 if (!file.exists("QuickSort.txt")){
         fileURL<-"http://spark-public.s3.amazonaws.com/algo1/programming_prob/QuickSort.txt";
-        download.file(fileURL, destfile = "IntegerArray.txt", method="wget");
+        download.file(fileURL, destfile = "QuickSort.txt", method="wget");
 }
 S<-read.table("QuickSort.txt")
 S<-S[,]
-quicksort(S)
+qsort(S,m=1)[[2]]
+qsort(S,m=2)[[2]]
+qsort(S,m=3)[[2]]
 
+
+        

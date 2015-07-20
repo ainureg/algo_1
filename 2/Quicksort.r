@@ -1,7 +1,5 @@
- 
-quicksort<- function (S)
+ quicksort<- function (S)
 {
-        
         ## условие выхода
         if (length(S)>1){
         
@@ -9,5 +7,4 @@ quicksort<- function (S)
         c(quicksort(S[S<pivot]), pivot, quicksort(S[S>pivot]))
         }
         else S
-      
 }
