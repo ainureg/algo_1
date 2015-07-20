@@ -2,14 +2,11 @@ qsort <- function(S,n=0,m) {
      
         if (length(S)>1)
         {
-#                 m<-Mfunc(S,m)
-#               
+             
                 M<-Mfunc(S,m)
-                
                 pivot<-S[M]
-                temp<- S[M]
                 S[M]<-S[1]
-                S[1]<-temp
+                S[1]<-pivot
                 
                 t<-1
                 for (i in 2:(length(S) ))
@@ -60,20 +57,14 @@ qsort <- function(S,n=0,m) {
 
 
 Mfunc <- function(S,m) {
-        if (m==1) 
+        mid<-ceiling(length(S)/2)
+        temp<- median( c( S[1],S[length(S)], S[mid] ) )
+        if ((S[1]== temp&m!=2) | m==1 )
                 return (1)
-        if (m==2) 
+        if ((S[length(S)]==temp&m!=1)  |m==2) 
                 return (length(S))
-        if (m==3)
-        {
-                temp<- median( c( S[1],S[length(S)], S[ceiling(length(S)/2)] )  )
-                if (S[1]== temp)
-                        return (1)
-                if (S[length(S)]==temp)
-                        return (length(S))
-                if  (S[ceiling(length(S)/2)]==temp)
-                        return (ceiling(length(S)/2 ) )
-        }
+        if  (S[mid]==temp)
+                return (mid)
 }        
         
         
