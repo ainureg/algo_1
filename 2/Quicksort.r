@@ -1,6 +1,6 @@
  quicksort<- function (S)
 {
-        ## условие выхода
+      
         if (length(S)>1){
         
         pivot<-S[1]
